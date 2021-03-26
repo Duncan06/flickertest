@@ -1,0 +1,15 @@
+<h1>Enter users's ID</h1>
+<%= form_with(url:'/staticpages', method: 'get') do |f| %>
+  <div>
+    <%= f.label :id %>
+    <%= f.text_field :id, value: params[:id] %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
+<% if @pictures %>
+  <% @pictures.each do |picture| %>
+    <%= image_tag Flickr.url(picture), loading: 'lazy' %>
+  <% end %>
+<% end %>
